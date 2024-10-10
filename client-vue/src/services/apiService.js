@@ -10,7 +10,6 @@ const apiClient = axios.create({
 })
 
 export const fetchTreeNodes = () => {
-    console.log(baseURL)
     return apiClient.get('/getTree')
     .then((response) => response.data)
     .catch((error) => {

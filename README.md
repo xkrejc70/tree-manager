@@ -35,3 +35,7 @@ npm run serve
 - `GET /api/v1/getTree`
 - `POST /api/v1/addNode`
 - `POST /api/v1/initTree`
+
+## Things I didn't finish
+- Unit tests for backend functions
+- Full integration of Tailwind css

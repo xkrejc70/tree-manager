@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <h1>Tree Manager</h1>
-    <div v-if="loading">Loading...</div>
+  <div class="flex flex-col items-center p-4">
+    <h1 class="text-3xl font-bold mb-4">Tree Manager</h1>
+    <div v-if="loading" class="text-xl">Loading...</div>
     <div>
-      <svg ref="treeSvg" width="1000" height="500"></svg>
-      <div>
-        <div v-if="error" style="color: red;">{{ error }}</div>
+      <svg ref="treeSvg" width="1000" height="500" class="border border-gray-300"></svg>
+      <div class="mt-4">
+        <div v-if="error" class="text-red-500 mb-2">{{ error }}</div>
         <input 
           v-model="newNodeParentId" 
           placeholder="Enter Parent Node ID" 
           type="number" 
           min="1" 
           @input="validateInput"
+          class="border border-gray-300 p-2 rounded mr-2"
         />
-        <button @click="addNode">Add Node</button>
-        <button @click="initTree">Init Tree</button>
+        <button @click="addNode" class="bg-blue-500 text-white p-2 rounded mr-2 hover:bg-blue-600">Add Node</button>
+        <button @click="initTree" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Init Tree</button>
       </div>
     </div>
   </div>
