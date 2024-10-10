@@ -148,6 +148,7 @@ export default {
           this.nodes.push(newNode)
           this.drawTree(this.nodes)
           this.newNodeParentId = ''
+          this.error = ''
         } else {
           this.error = response.message
         }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = "http://localhost:5005/api/v1"
+const baseURL = process.env.VUE_APP_API_ENDPOINT
 
 const apiClient = axios.create({
     baseURL: baseURL,
@@ -10,6 +10,7 @@ const apiClient = axios.create({
 })
 
 export const fetchTreeNodes = () => {
+    console.log(baseURL)
     return apiClient.get('/getTree')
     .then((response) => response.data)
     .catch((error) => {
@@ -25,4 +26,13 @@ export const addNode = (parentId) => {
             console.error('Error adding node:', error)
             throw error
         })
+}
+
+export const initTree = () => {
+    return apiClient.post('/initTree')
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Error initializing tree:', error)
+        throw error
+    })
 }

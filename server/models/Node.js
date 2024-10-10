@@ -23,6 +23,16 @@ class Node {
         return result.insertId
     }
     
+    static async deleteAllNodes() {
+        await pool.query("DELETE FROM tree_nodes")
+    }
+
+    static async addRootNode() {
+        const [result] = await pool.query(`
+            INSERT INTO tree_nodes (pid) VALUES (NULL)
+        `)
+        return result.insertId
+    }
 }
   
 export default Node

@@ -8,7 +8,7 @@ class NodeService {
   }
 
   async addNode(parentId) {
-    console.log(parentId)
+    //console.log(parentId)
     const parentNode = await Node.getNodeById(parentId)
     if (!parentNode) {
       return { success: false, message: `Parent node ${parentId} not found` }
@@ -16,6 +16,12 @@ class NodeService {
 
     const newNodeId = await Node.addNode(parentId)
     return { success: true, newNodeId }
+  }
+
+  async initTree() {
+    await Node.deleteAllNodes()
+    const newRootId = await Node.addRootNode()
+    return { rootId: newRootId }
   }
 
 }

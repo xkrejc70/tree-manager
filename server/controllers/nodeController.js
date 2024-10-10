@@ -20,5 +20,13 @@ export const addNode = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
+}
 
+export const initTree = async (req, res, next) => {
+  try {
+    const result = await NodeService.initTree()
+    res.status(200).json({ success: true, data: { rootId: result.rootId } })
+  } catch (error) {
+    next(error)
+  }
 }
