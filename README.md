@@ -36,6 +36,8 @@ npm run serve
 - `POST /api/v1/addNode`
 - `POST /api/v1/initTree`
 
-## Things I didn't finish
+## Things I didn't finish but I'd do
 - Unit tests for backend functions
 - Full integration of Tailwind css
+- Refactor TreeManager component
+- Responsive GUI

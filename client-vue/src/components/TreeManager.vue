@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col items-center p-4">
     <h1 class="text-3xl font-bold mb-4">Tree Manager</h1>
-    <div v-if="loading" class="text-xl">Loading...</div>
     <div>
       <svg ref="treeSvg" width="1000" height="500" class="border border-gray-300"></svg>
       <div class="mt-4">
@@ -14,8 +13,8 @@
           @input="validateInput"
           class="border border-gray-300 p-2 rounded mr-2"
         />
-        <button @click="addNode" class="bg-blue-500 text-white p-2 rounded mr-2 hover:bg-blue-600">Add Node</button>
-        <button @click="initTree" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">Init Tree</button>
+        <button @click="addNode" class="bg-blue-600 text-white p-2 rounded mr-2 hover:bg-blue-700 transition duration-200 ease-in-out">Add Node</button>
+        <button @click="initTree" class="bg-green-600 text-white p-2 rounded hover:bg-green-700 transition duration-200 ease-in-out">Init Tree</button>
       </div>
     </div>
   </div>
@@ -29,13 +28,11 @@ export default {
   data() {
     return {
       nodes: [],
-      loading: false,
       error: null,
       newNodeParentId: '',
     }
   },
   async mounted() {
-    this.loading = true
     this.error = null
     try {
       const response = await fetchTreeNodes()
@@ -44,8 +41,6 @@ export default {
       this.drawTree(this.nodes)
     } catch (err) {
       this.error = "Failed to load tree nodes."
-    } finally {
-      this.loading = false
     }
   },
   methods: {
@@ -159,7 +154,6 @@ export default {
     },
 
     async initTree() {
-      this.loading = true
       this.error = null
       try {
         const response = await initTree()
@@ -171,8 +165,6 @@ export default {
         }
       } catch (err) {
         this.error = "Failed to initialize the tree."
-      } finally {
-        this.loading = false
       }
     },
   },
