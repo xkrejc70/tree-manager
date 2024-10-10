@@ -1,5 +1,5 @@
 <script setup>
-import TreeManager from './components/tree/TreeManager.vue'
+import TreeManager from './components/TreeManager.vue'
 </script>
 
 <template>
