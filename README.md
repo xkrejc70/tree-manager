@@ -7,11 +7,9 @@ Very simple web app for visualizing and managing tree structure, visualized usin
 - Clone repo
 - Run MySQL server
 
-Run the following command to set up the MySQL database:
+Run the `init_db.sh` script to set up the MySQL database
 
-`init_db.sh`
-
-Enter your MySQL root password when prompted. This will create the **tree_manager** database and the _tree_nodes_ table with initial data.
+Enter your MySQL password when prompted. This will create the **tree_manager** database and the _tree_nodes_ table with initial data.
 
 ### Express.js
 
@@ -40,4 +38,4 @@ npm run serve
 - Unit tests for backend functions
 - Full integration of Tailwind css
 - Refactor TreeManager component
-- Responsive GUI
+- More responsive GUI
